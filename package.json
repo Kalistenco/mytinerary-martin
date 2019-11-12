@@ -1,0 +1,19 @@
+{
+  "name": "mytinerary-martin",
+  "version": "1.0.0",
+  "description": "aplicación Mytinerary, versión hecha por Martín",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kalistenco/mytinerary-martin.git"
+  },
+  "author": "Martín Kalistenco",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kalistenco/mytinerary-martin/issues"
+  },
+  "homepage": "https://github.com/Kalistenco/mytinerary-martin#readme"
+}
