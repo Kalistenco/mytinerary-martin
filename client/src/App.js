@@ -5,11 +5,11 @@ import {
   Switch,
   Route
 } from "react-router-dom"
-import Home from './Home'
-import Cities from './Cities'
-import LogIn from './LogIn'
-import CreateAccount from './CreateAccount'
-import Mytinerary from './Mytinerary'
+import Home from './components/Home'
+import Cities from './components/Cities'
+import LogIn from './components/LogIn'
+import CreateAccount from './components/CreateAccount'
+import Mytinerary from './components/Mytinerary'
 
 export default class App extends Component {
   render() {
