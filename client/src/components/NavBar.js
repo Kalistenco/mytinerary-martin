@@ -22,13 +22,14 @@ export default class NavBar extends Component {
                 </NavDropdown>
 
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="mr-auto">
+                <Navbar.Collapse className="justify-content-end" id="basic-navbar-nav">
+                    <Nav className="mr-4">
                         <Nav.Link href="#">Home</Nav.Link>
                         <Nav.Link href="../Cities">Cities</Nav.Link>
                         <Nav.Link href="../Mytinerary">MYtinerary</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
+                
             </Navbar>
         )
     }

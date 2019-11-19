@@ -4,6 +4,7 @@ import Container from 'react-bootstrap/Container'
 import Form from 'react-bootstrap/Form'
 import NavBar from './NavBar'
 import Image from 'react-bootstrap/Image'
+import './Cities.css'
 
 export default class Cities extends Component {
 
@@ -18,7 +19,7 @@ export default class Cities extends Component {
 
     fetchCities = () => {
 
-        fetch('http://localhost:5000/cities/all')
+        fetch('http://172.16.127.35:5000/cities/all')
             .then(response => response.json())
             .then(citiesArray => this.setState({ citiesArray, isLoading: true, filteredCitiesArray: citiesArray }))
             .catch(error => console.log(error))
@@ -61,8 +62,8 @@ export default class Cities extends Component {
             <Container>
 
                 <NavBar>
-
                 </NavBar>
+
                 <h2 className="d-flex justify-content-center mt-3 mb-3">Cities</h2>
 
                 <Form className="mb-4">
@@ -77,10 +78,10 @@ export default class Cities extends Component {
                         {this.state.filteredCitiesArray.map((city) =>
                             <tr key={city._id}>
                                 <td>
-                                    <Image
+                                    <Image id="qwe"
                                         src={city.img}
                                         fluid />
-                                    <h4 className="d-flex justify-content-center mt-3">{city.city}</h4>
+                                    <h5 className="d-flex justify-content-center mt-3">{city.city}</h5>
                                 </td>
                             </tr>
                         )}
