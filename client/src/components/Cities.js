@@ -67,8 +67,7 @@ export default class Cities extends Component {
                 <h2 className="d-flex justify-content-center mt-3 mb-3">Cities</h2>
 
                 <Form className="mb-4">
-                    <Form.Label>Filter Cities</Form.Label>
-                    <Form.Control type="city" placeholder="Enter city" onChange={this.filterCities} />
+                    <Form.Control type="city" placeholder="Filter your favourite city" onChange={this.filterCities} />
                 </Form>
 
                 <Table>
@@ -78,10 +77,10 @@ export default class Cities extends Component {
                         {this.state.filteredCitiesArray.map((city) =>
                             <tr key={city._id}>
                                 <td>
-                                    <Image id="qwe"
+                                    <Image
                                         src={city.img}
                                         fluid />
-                                    <h5 className="d-flex justify-content-center mt-3">{city.city}</h5>
+                                    <h5 className="d-flex justify-content-center mt-3" id="text">{city.city}</h5>
                                 </td>
                             </tr>
                         )}
