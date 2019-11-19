@@ -7,7 +7,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown'
 export default class NavBar extends Component {
     render() {
         return (
-            <Navbar bg="light" expand="sm">
+            <Navbar bg="light" expand="sm" sticky="top">
                 <NavDropdown title={
                     <Image
                         height={50}
@@ -24,7 +24,7 @@ export default class NavBar extends Component {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse className="justify-content-end" id="basic-navbar-nav">
                     <Nav className="mr-4">
-                        <Nav.Link href="#">Home</Nav.Link>
+                        <Nav.Link href="../">Home</Nav.Link>
                         <Nav.Link href="../Cities">Cities</Nav.Link>
                         <Nav.Link href="../Mytinerary">MYtinerary</Nav.Link>
                     </Nav>
