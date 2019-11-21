@@ -13,22 +13,20 @@ export default class Header extends Component {
                         <Image
                             height={300}
                             width={500}
-                            src={require("../images/MYtineraryLogo.png")}
+                            src={require("../images/MYtineraryLogo.svg")}
                             fluid />
                     </Row>
 
-                    <Row className="justify-content-md-center d-flex mx-auto d-block">
+                    <Row className="justify-content-center">
                         <h6 ><i>Find your perfect trip, designed by insiders who know and love their cities</i></h6>
                     </Row>
 
-                    <Row className="justify-content-md-center">
-                        <Button className="d-flex mx-auto d-block" variant="outline-light">
-                            <Image
+                    <Row className="d-flex justify-content-center">
+                            <Image className="mt-3 mb-3"
                                 height={50}
                                 width={100}
-                                src={require("../images/circled-right-2.png")}
+                                src="https://www.wpclipart.com/signs_symbol/arrows/arrows_color/arrow_outline_red_right.png"
                                 fluid/>
-                        </Button>
                     </Row>
 
                 </Container>

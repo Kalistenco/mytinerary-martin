@@ -5,8 +5,10 @@ import Form from 'react-bootstrap/Form'
 import NavBar from './NavBar'
 import Image from 'react-bootstrap/Image'
 import './Cities.css'
+import { getAllCities } from '../store/actions/citiesActions'
+import { connect } from "react-redux";
 
-export default class Cities extends Component {
+class Cities extends Component {
 
     constructor() {
         super();
@@ -15,15 +17,6 @@ export default class Cities extends Component {
             citiesArray: [],
             filteredCitiesArray: []
         };
-    }
-
-    fetchCities = () => {
-
-        fetch('http://172.16.127.35:5000/cities/all')
-            .then(response => response.json())
-            .then(citiesArray => this.setState({ citiesArray, isLoading: true, filteredCitiesArray: citiesArray }))
-            .catch(error => console.log(error))
-
     }
 
     filterCities = (filter) => {
@@ -38,8 +31,13 @@ export default class Cities extends Component {
         this.setState({ filteredCitiesArray })
     }
 
-    componentDidMount() {
-        this.fetchCities()
+    async UNSAFE_componentWillMount() {
+        await this.props.citiesArray(); 
+        this.setState({
+            citiesArray: this.props.cities.citiesReducer.citiesArray,
+            filteredCitiesArray: this.props.cities.citiesReducer.citiesArray,
+            isLoading: true
+        })
     }
 
     render() {
@@ -47,11 +45,8 @@ export default class Cities extends Component {
         if (this.state.isLoading === false) {
             return (
                 <Container>
-
                     <NavBar>
-
                     </NavBar>
-
                     <h6 className="d-flex justify-content-center mt-3">Waiting for cities list to load</h6>
                 </Container>
             )
@@ -61,8 +56,7 @@ export default class Cities extends Component {
 
             <Container>
 
-                <NavBar>
-                </NavBar>
+                <NavBar></NavBar>
 
                 <h2 className="d-flex justify-content-center mt-3 mb-3">Cities</h2>
 
@@ -92,3 +86,21 @@ export default class Cities extends Component {
         )
     }
 }
+
+const mapStateToProps = (state) => {
+    return {
+        cities: state
+    };    
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        citiesArray: () => dispatch(getAllCities())
+    };
+};
+
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Cities);
