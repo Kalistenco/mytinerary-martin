@@ -2,11 +2,18 @@ navbar {
      padding: 0px;
 }
 
-h2 {
+/* h2 {
      font-size: 10vw;
-     color: white;
-     text-shadow: -0.25vw 0 darkred, 0 0.25vw darkred, 0.25vw 0 darkred, 0 -0.25vw darkred
-} 
+     color: red;
+     text-shadow: -0.25vw 0 black, 0 0.25vw black, 0.25vw 0 black, 0 -0.25vw black
+}  
+*/
+ h2  { color: red; font-family: 'Rouge Script', cursive; 
+     font-size: 12vw; font-weight: normal; margin: 0 0 0px; text-align: center; text-shadow: 1px 1px 2px #082b34; } 
+
+/* #imgtd{
+     border: 0.5vw ridge red;
+} */
 
 /* text-shadow: #FFF 0px 0px 5px, #FFF 0px 0px 10px, #FFF 0px 0px 15px, #FF2D95 0px 0px 20px, #FF2D95 0px 0px 30px, #FF2D95 0px 0px 40px, #FF2D95 0px 0px 50px, #FF2D95 0px 0px 75px; */
 

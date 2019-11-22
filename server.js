@@ -10,10 +10,6 @@ router.get('/', function (req, res) {
     res.send('im the home page!');
 });
 
-router.get('/test', function (req, res) {
-    res.send('test ok');
-});
-
 app.use('/', router);
 
 app.listen(port, function () {
@@ -21,7 +17,8 @@ app.listen(port, function () {
 })
 
 var mongoose = require('mongoose');
-var cityModel = require('./City')
+var cityModel = require('./backend/City');
+var intineraryModel = require('./backend/Itinerary');
 
 router.get('/cities/all', function (req, res) {
     mongoose.connect('mongodb+srv://martink:1234@mytinerarycluster-dtydu.mongodb.net/myTinerary?retryWrites=true&w=majority', 
@@ -29,6 +26,16 @@ router.get('/cities/all', function (req, res) {
         .then(() => {
             cityModel.find()
                 .then(cities => res.send(cities))   
+        })
+        .catch(err => console.log(err))
+})
+
+router.get('/itineraries/all', function (req, res) {
+    mongoose.connect('mongodb+srv://martink:1234@mytinerarycluster-dtydu.mongodb.net/myTinerary?retryWrites=true&w=majority', 
+    {useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true })
+        .then(() => {
+            intineraryModel.find()
+                .then(itineraries => res.send(itineraries))
         })
         .catch(err => console.log(err))
 })

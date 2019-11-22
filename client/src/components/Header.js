@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Image from 'react-bootstrap/Image'
 import Row from 'react-bootstrap/Row'
 import Container from 'react-bootstrap/Container'
-import Button from 'react-bootstrap/Button'
+import { Link } from "react-router-dom";
 
 export default class Header extends Component {
     render() {
@@ -10,11 +10,11 @@ export default class Header extends Component {
             <div>
                 <Container>
                     <Row className="justify-content-md-center">
-                        <Image
-                            height={300}
-                            width={500}
-                            src={require("../images/MYtineraryLogo.svg")}
-                            fluid />
+                            <Image
+                                height={300}
+                                width={500}
+                                src={require("../images/MYtineraryLogo.svg")}
+                                fluid />
                     </Row>
 
                     <Row className="justify-content-center">
@@ -22,11 +22,13 @@ export default class Header extends Component {
                     </Row>
 
                     <Row className="d-flex justify-content-center">
-                            <Image className="mt-3 mb-3"
-                                height={50}
-                                width={100}
-                                src="https://www.wpclipart.com/signs_symbol/arrows/arrows_color/arrow_outline_red_right.png"
-                                fluid/>
+                    <Link to="/Cities">
+                        <Image className="mt-3 mb-3"
+                            height={50}
+                            width={100}
+                            src="https://www.wpclipart.com/signs_symbol/arrows/arrows_color/arrow_outline_red_right.png"
+                            fluid />
+                        </Link>
                     </Row>
 
                 </Container>

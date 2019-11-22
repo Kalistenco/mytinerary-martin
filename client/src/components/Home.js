@@ -1,17 +1,14 @@
 import React, { Component } from 'react'
-import NavBar from './NavBar'
-import Header from './Header'
 import Pictures from './Pictures'
-import Container from 'react-bootstrap/Container'
+import Header from './Header'
 
 export default class Home extends Component {
     render() {
         return (
-            <Container>
-                <NavBar></NavBar>
+            <div>
                 <Header></Header>
                 <Pictures></Pictures>
-            </Container>
+            </div>
         )
     }
 }

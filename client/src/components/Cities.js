@@ -23,10 +23,11 @@ class Cities extends Component {
         var filteredCitiesArray = [];
         var value = filter.target.value.toLowerCase()
 
-        this.state.citiesArray.map(element => {
-            if (element.city.toString().toLowerCase().startsWith(value))
-                filteredCitiesArray.push(element)
-        })
+        // this.state.citiesArray.map(element => {
+        //     if (element.city.toString().toLowerCase().startsWith(value)|| true && flase)
+        //         filteredCitiesArray.push(element)
+        // })
+        filteredCitiesArray = this.state.citiesArray.filter(element => element.city.toString().toLowerCase().startsWith(value))
 
         this.setState({ filteredCitiesArray })
     }
@@ -45,9 +46,8 @@ class Cities extends Component {
         if (this.state.isLoading === false) {
             return (
                 <Container>
-                    <NavBar>
-                    </NavBar>
-                    <h6 className="d-flex justify-content-center mt-3">Waiting for cities list to load</h6>
+                    <h6 className="d-flex justify-content-center mt-3">
+                        <i>Waiting for cities to load...</i></h6>
                 </Container>
             )
         }
@@ -56,12 +56,10 @@ class Cities extends Component {
 
             <Container>
 
-                <NavBar></NavBar>
-
                 <h2 className="d-flex justify-content-center mt-3 mb-3">Cities</h2>
 
                 <Form className="mb-4">
-                    <Form.Control type="city" placeholder="Filter your favourite city" onChange={this.filterCities} />
+                    <Form.Control type="city" placeholder="Filter your favourite city!" onChange={this.filterCities} />
                 </Form>
 
                 <Table>
@@ -71,7 +69,7 @@ class Cities extends Component {
                         {this.state.filteredCitiesArray.map((city) =>
                             <tr key={city._id}>
                                 <td>
-                                    <Image
+                                    <Image id="imgtd"
                                         src={city.img}
                                         fluid />
                                     <h5 className="d-flex justify-content-center mt-3" id="text">{city.city}</h5>
@@ -98,7 +96,6 @@ const mapDispatchToProps = dispatch => {
         citiesArray: () => dispatch(getAllCities())
     };
 };
-
 
 export default connect(
     mapStateToProps,

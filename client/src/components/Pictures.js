@@ -9,7 +9,7 @@ export default class Pictures extends Component {
         return (
             <div>
 
-                <h5><i>Popular MYtineraries</i></h5>
+                <h6><i>Popular MYtineraries</i></h6>
 
                 <Carousel>
                     <Carousel.Item>
