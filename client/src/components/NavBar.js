@@ -10,7 +10,7 @@ export default class NavBar extends Component {
         return (
             <Navbar expand="sm" sticky="top" id="navbar-custom">
                 <NavDropdown title={
-                    <Image
+                    <Image  
                         height={50}
                         with={50}
                         src="https://cdn3.iconfinder.com/data/icons/complete-set-icons/512/skype2512x512.png"

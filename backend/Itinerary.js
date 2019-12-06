@@ -4,12 +4,14 @@ var Schema = mongoose.Schema;
 
 var intinerarySchema = new Schema({
     title: String,
-    profilePicture: String,
+    city: String,
+    country: String,
+    userPhoto: String,
     rating: Number,
     duration: Number,
-    price: Number,
-    hastags: Array,
-    cityName: String
+    price: String,
+    hashtags: Array,
+    username: String
 });
 
 module.exports = mongoose.model('itineraries', intinerarySchema);

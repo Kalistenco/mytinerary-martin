@@ -1,6 +1,8 @@
 import { FETCH_ALL_CITIES } from '../actions/citiesActions'
 
-const initialState = ""
+const initialState = {
+    citiesArray:[]
+}
 
 export function citiesReducer(state = initialState, action) {
     switch(action.type) {

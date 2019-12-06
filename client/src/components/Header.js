@@ -18,7 +18,10 @@ export default class Header extends Component {
                     </Row>
 
                     <Row className="justify-content-center">
-                        <h6 ><i>Find your perfect trip, designed by insiders who know and love their cities</i></h6>
+                        <h6 className="mr-md-1 mb-0"><i>Find your perfect trip, designed by insiders who</i></h6>
+                        <h6><i>know and love their cities</i></h6>
+
+
                     </Row>
 
                     <Row className="d-flex justify-content-center">

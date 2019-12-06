@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Table from 'react-bootstrap/Table'
 import Container from 'react-bootstrap/Container'
 import Form from 'react-bootstrap/Form'
-import NavBar from './NavBar'
+import { Link } from "react-router-dom"
 import Image from 'react-bootstrap/Image'
 import './Cities.css'
 import { getAllCities } from '../store/actions/citiesActions'
@@ -23,17 +23,13 @@ class Cities extends Component {
         var filteredCitiesArray = [];
         var value = filter.target.value.toLowerCase()
 
-        // this.state.citiesArray.map(element => {
-        //     if (element.city.toString().toLowerCase().startsWith(value)|| true && flase)
-        //         filteredCitiesArray.push(element)
-        // })
         filteredCitiesArray = this.state.citiesArray.filter(element => element.city.toString().toLowerCase().startsWith(value))
 
         this.setState({ filteredCitiesArray })
     }
 
     async UNSAFE_componentWillMount() {
-        await this.props.citiesArray(); 
+        await this.props.citiesArray();
         this.setState({
             citiesArray: this.props.cities.citiesReducer.citiesArray,
             filteredCitiesArray: this.props.cities.citiesReducer.citiesArray,
@@ -56,10 +52,10 @@ class Cities extends Component {
 
             <Container>
 
-                <h2 className="d-flex justify-content-center mt-3 mb-3">Cities</h2>
+                <h2 className="d-flex justify-content-center mb-2">Cities</h2>
 
-                <Form className="mb-4">
-                    <Form.Control type="city" placeholder="Filter your favourite city!" onChange={this.filterCities} />
+                <Form className="mb-3">
+                    <Form.Control type="city" placeholder="Find your favourite city!" onChange={this.filterCities} />
                 </Form>
 
                 <Table>
@@ -68,14 +64,17 @@ class Cities extends Component {
 
                         {this.state.filteredCitiesArray.map((city) =>
                             <tr key={city._id}>
-                                <td>
-                                    <Image id="imgtd"
-                                        src={city.img}
-                                        fluid />
+                                <td id="imgcontainer">
+                                    <Link to={`/itineraries/${city.city}`}>
+                                        <Image
+                                            src={city.img}
+                                            fluid rounded />
+                                    </Link>
                                     <h5 className="d-flex justify-content-center mt-3" id="text">{city.city}</h5>
                                 </td>
                             </tr>
                         )}
+
                     </tbody>
 
                 </Table>
@@ -88,7 +87,7 @@ class Cities extends Component {
 const mapStateToProps = (state) => {
     return {
         cities: state
-    };    
+    };
 };
 
 const mapDispatchToProps = dispatch => {
